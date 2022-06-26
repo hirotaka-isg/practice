@@ -1,0 +1,15 @@
+
+## PostgreSQLのインストール
+# インストールコマンド（これはうまくいった）
+yum install postgresql-tcl postgresql-server postgresql-contribpostgresql
+
+# アインインストール
+yum remove postgresql
+
+
+## データベースクラスタの作成
+mkdir postgres
+sudo su - postgres -c 'initdb -E UTF8 --locale=C'
+
+
+ruby on railsの

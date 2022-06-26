@@ -1,0 +1,52 @@
+GitHub Flowの疑似体験
+■前提
+とあるソフトウェアの機能を開発する開発者としてGitHub Flowを実践しているチームで働くと仮定
+アカウント名：github-book
+リポジトリ名：fizzbuzz
+ソフトウェア名：fizzbuzz
+※fizzbuzz(フィズ・バズ)問題をプログラムの題材として使用(https://ja.wikipedia.org/wiki/Fizz_Buzz)
+
+■fizzbuzzの仕様
+１〜100までの数字を出力するとき下記に従って表示
+・３の倍数のときはfizz
+・５の倍数のときはbuzz
+・３と５の倍数のときはfizzbuzz
+・それ以外の数字のときはそのままの数字
+
+■新機能の追加
+・７という数字がつくときはGitHubと表示
+	elsif number.to_s.include? '7'
+		'GitHub'
+
+
+■fizzbuzz.rb オリジナル
+class Fizzbuzz
+  def clculate number
+    if number % 3 == number % 5 == 0
+      'fizzbuzz'
+    elsif number % 3 == 0
+      'fizz'
+    elsif number % 5 == 0
+      'buzz'
+    else
+      number
+    end
+  end
+end
+
+■新しいブランチを作成
+・新たにcloneする場合
+	git clone [リモートリポジトリ]
+
+・以前にcloneしたことがある場合
+	masterブランチに最新のリモートリポジトリの状態を取り込む
+	git checkout master
+
+・トピックブランチを作成する
+	7-case-output-githubというブランチ名で作成
+		git checkout -b 7-case-output-github
+	定期的にpushする
+		git push -u origin 7-case-output-github
+
+
+git push origin git@github.com:hirotaka-isg/practice-git.git

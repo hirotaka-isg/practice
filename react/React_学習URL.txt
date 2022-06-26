@@ -1,0 +1,9 @@
+学習参考サイト
+・【2021年最新】フロントエンジニア向けのアプリ開発4選
+https://sbucks-blog.com/program/study/05-2/
+
+・React公式チュートリアル
+https://ja.reactjs.org/docs/getting-started.html#try-react
+
+・新・日本一わかりやすいReact入門【基礎編】Reactの基礎知識
+https://www.youtube.com/watch?v=XKSYF2aZnkQ&list=PLX8Rsrpnn3IWPoM7-1YPDksRRkamRY25k&index=1&t=239s

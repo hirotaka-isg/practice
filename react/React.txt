@@ -1,0 +1,111 @@
+・React公式チュートリアル
+https://ja.reactjs.org/docs/getting-started.html#try-react
+
+・新・日本一わかりやすいReact入門【基礎編】Reactの基礎知識
+https://www.youtube.com/watch?v=XKSYF2aZnkQ&list=PLX8Rsrpnn3IWPoM7-1YPDksRRkamRY25k&index=1&t=239s
+
+■シリーズの概要
+Reactの基礎知識
+JSXの記法
+
+BabelとWebpackとは？
+create-react-appで構築環境
+Reactコンポーネントの作り方
+Reactルーターの使い方
+
+・Reactとは？
+JavaScriptのライブラリ
+WEBのUIを作る
+SPAを作るのにReactは便利
+
+・コンポーネントとは
+UIは大きく分けて２つ　
+　見た目
+　機能
+コンポーネント = 見た目 + 機能
+
+・Reactを使わない画面描画
+Domを利用
+→コストが高い
+
+・仮想DOMという解決策
+ブラウザのDOMツリーをJavaScriptオブジェクトとして扱う
+　ブラウザに負荷をかけずにJavaScriptエンジンのメモリを使う
+　→効率の良い再描画(レンダリング)を行うことが目標
+
+■create-react-appで構築環境
+node.js
+npm
+homebrew, nodebrew
+homebrew : MacOSのパッケージ管理
+nodebrew : nodeのパッケージ管理
+
+・homebrewのバージョン確認
+brew -v
+
+・nodebrewのインストール
+brew install nodebrew
+sudo brew install nodebrew
+・nodebrewのバージョン確認
+nodebrew -v
+
+・nodeのインストール
+nodebrew ls-remote
+
+・安定したバージョンのインストール　←ディレクトリが無いとエラー←用意したらうまくいった
+nodebrew install-binary [version]
+nodebrew install-binary stable
+stable：安定版
+latest：最新版
+
+・手元にインストールしたnodebrewのバージョン
+nodebrew ls
+
+・使いたいバージョンの選択
+nodebrew use [バージョン]
+nodebrew use v16.4.0
+
+・SHELLのパスの確認
+echo $SHELL
+
+・パスを通す(bashの場合)
+echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.bash_profile
+
+node -v
+npm -v
+
+npx create-react-app react-basic
+
+・react-basicの中で実行
+npm start
+	ローカルサーバを起動してReactアプリを確認できる
+	ホットリロードに対応（ファイルは自動更新）
+	ctl + C　→停止
+
+npm run build
+	本番用のファイルを生成してbuildディレクトリに出力
+	
+
+npm run eject
+	BabelやWebpackの設定を変えたいときに使う
+
+propsで受け渡せるデータ
+	propsのデータは{}に記述
+	文字列、数値、真偽値、配列、オブジェクト、日付などなんでもOK
+	変数を渡すことも可能
+	文字列は{}なしでもOK
+
+useStateの使い方
+・useStateによるstateの宣言
+const [現在の状態, 更新関数] = useState(初期値)
+const [state, setState] = useState(initialState)
+
+・stateの更新
+setState(newState)
+更新関数(新しい値)
+
+
+
+
+
+

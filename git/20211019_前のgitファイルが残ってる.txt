@@ -1,0 +1,17 @@
+別のアカウント時のリポジトリ?gitの情報のが残っていたのでエラーになるので、削除して対応
+
+■該当するディレクトリで削除を実行
+	rm -rf .git
+
+■ローカルリポジトリに登録
+・初回時
+	git init
+・初めてコミットするファイルまたは編集後のファイル
+	git add .
+・コミット
+	git commit
+
+■リモートリポジトリに登録
+	# git remote add リモート名 リモートのURL
+	git remote add origin git@github.com:hirotaka-isg/vim.git
+	git push -u origin master

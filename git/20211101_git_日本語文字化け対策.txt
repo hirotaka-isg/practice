@@ -1,0 +1,6 @@
+
+# ファイル名の文字化けを解消したいディレクトリに移動して実行
+git config --local core.quotepath false
+
+■参考サイト
+https://dev.classmethod.jp/articles/git-avoid-illegal-charactor-tips/

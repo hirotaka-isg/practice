@@ -1,0 +1,169 @@
+99 AWS 基礎からネットワーク＆サーバー構築
+【SHAPTER2 ネットワークの構築】
+
+■実験用VPCの作成
+・「10.0.0.0/16」のVPC領域を作成
+※IPv4を使うのでPv6はデフォルトの「No IPv6 CIDR Block」
+
+■サブネットの分割
+・パブリックサブネットの作成
+　・「10.0.1.0/24」のCIDRブロックで作成
+
+■インターネットゲートウェイの作成
+インターネットに接続するための回線を引き込む
+・インターネットゲートウェイの作成
+・VPCにアタッチ
+　VPC領域に結びつける
+
+■ルーティング情報
+ネットワークにデータを流すためには「ルーティング情報」と呼ばれる設定が必要
+・サブネットに対して設定されているルートテーブルを確認する
+　サブネット-サブネット一覧-ルートテーブルID
+￼
+・デフォルトゲートウェイをインターネットに向けて設定
+　・新しいルートテーブルの作成
+　　ルートテーブル-ルートテーブルの作成
+　　　名前：パブリックルートテーブル
+　　　サブネットの関連付け：パブリックサブネット
+　・ルートテーブルをサブネットに割り当てる
+
+【SHAPTER3 サーバを構築】
+・インスタンスの作成
+　リージョン：東京
+　インスタンス-インスタンスの作成
+　OS：Amazon Linux2
+　インスタンスタイプ：t2.micro
+　プライマリIP：10.0.1.10
+
+・Macのターミナルで接続する
+　鍵のパーミッションを変更
+　sudo chmod 400 /Users/hirotaka/.ssh/my-key_20210612.pem
+　ssh -i my-key_20210612.pem ec2-user@3.112.29.245
+
+　※鍵のパーミッションによっては接続できない
+
+・どのポートでどのプログラムが待ち受けているか確認
+sudo lsof -i -n -P
+
+・ファイアウォールで制限する
+デフォルトの設定がどうなっているか確認
+
+【CHAPTER4 Webサーバーソフトをインストールする】
+・Apache HTTP Serverのインストール
+[Apacheのインストール]
+sudo yum -y install httpd
+
+[Apacheの起動]
+sudo service httpd start
+
+[自動起動に構成変更]
+sudo chkconfig httpd on
+
+[構成確認]←このコマンドうまくいかない
+sudo chkconfig --list httpd
+
+[Apacheのプロセスを確認]
+ps -ax
+ps -ax | grep httpd
+
+[ネットワークの待受状態確認]
+sudo lsof -i -n -P
+sudo lsof -i -n -P | grep httpd
+
+■ファイアウォールの設定
+・Webサーバーに接続
+　接続できないことを確認
+　※デフォルトではポート80(HTTP)、443(HTTPS)は閉じられているため
+
+・ファイアウォールを構成変更
+　セキュリティグループの設定で、ポート80をどのIPからも接続を追加
+
+■ドメイン名と名前解決
+・DNSホスト名を有効化
+　VPC-アクション-ホスト名の編集→DNSホスト名を有効化
+
+・DNSサーバーを構成する
+・ インスタンスの名前解決を有効にする
+　DNS名をつけるように構成する
+
+・パブリックDNSでログインできるか確認
+ec2-3.112.29.245.ap-northeast-1.compute.amazonaws.com
+※Elastic IPにしてないとIP部分がころころ変わる
+
+・nslookupコマンドでDNSサーバの動きを見る
+nslookup [DNS名]
+nslookup ec2-3-112-47-115.ap-northeast-1.compute.amazonaws.com
+
+nslookup [IP]　※逆引き
+nslookup 3.112.47.115
+
+【CHAPTER5 HTTPの動きを確認する】
+・ブラウザの開発ツールを用いてHTTPのやりとりをのぞいてみる
+<Firefox>
+開発者ツール→ネットワーク
+
+・MacのターミナルでTelnet接続する
+telnet www.nikkeibp.co.jp 80
+※MacOS(var10.13)以降はtelnetコマンドは廃止された模様
+
+
+【CHAPTER6 プライベートサブネットを構築する】
+・プライベートサブネットを作る
+　パブリックサブネット　：10.0.1.0/24
+　プライベートサブネット：10.0.2.0/24
+
+・プライベートサブネットにサーバを構築する
+　サブネット：プライベートサブネット
+　自動割当パブリックIP：無効化
+　プライマリIP：10.0.2.10
+
+・Pingコマンドで疎通確認できるようにする
+　・ICMPが通るように構成する
+　　DBサーバーに対してICMPプロトコルが通るようにファイアウォールの構成を変更する
+
+・踏み台サーバーを経由してSSHで接続する
+①WebサーバーにSSHでアクセス
+②WebサーバーからDBサーバーにSSHでアクセス
+Webサーバーを踏み台とすれば、ローカル環境からDBにアクセスすることが可能
+[ローカル]→(インターネット)→[Web]→[DB]
+
+・秘密鍵をアップロード
+　インスタンスにSSHで接続するには「秘密鍵」が必要
+　WebサーバーからDBサーバーにSSHで接続する場合には、秘密鍵をWebサーバーに置いておく必要がある
+
+<Macの場合のコマンド>
+
+ssh -i my-key_20210612.pem ec2-user@3.112.29.245
+
+【DBを用いたブログシステムの構築】
+
+■MySQLのインストール
+・DBサーバで実行
+sudo yum -y install mysql-server
+
+■MySQLの起動と初期設定
+・起動：DBサーバで実行
+sudo service mysqld start
+
+※mySQLのヴァージョン5.7?以降は初回起動時にパスワード(ランダム値)が生成される模様
+sudo cat /var/log/mysqld.logで確認
+
+・停止
+sudo service mysqld stop
+
+・パスワード変更：DBサーバで実行
+sudo mysqladmin -u root password
+初期パス：GXuVB2OkB8f
+mysql -u root -pGXuVB2OkB8f
+■WordPress用のデータベースを作成する
+・DBサーバで実行
+sudo mysql -u root -p
+mysql -u root -pGXuVB2OkB8f
+
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+・DB起動時にMySQLも起動
+sudo chkconfig mysqld on
+
+
+—END—

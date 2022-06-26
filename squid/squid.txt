@@ -1,0 +1,36 @@
+
+参考サイト
+https://dev.classmethod.jp/articles/squid-proxy-setup/
+
+■インストール
+# squidのインストール
+sudo yum update
+sudo yum install squid
+
+# インストール・バージョン確認
+squid -v
+
+# 自動起動設定を行いリスタート
+sudo systemctl enable squid
+sudo systemctl restart squid
+
+# squidがポート3128を使用していることを確認
+sudo lsof -i:3128
+
+■clintへのセットアップ
+proxyを踏み台にプライベートIPでclientにSSHする
+それぞれの設定ファイルにプロキシの設定を記入する
+
+# /etc/yum.conf の編集
+# IPはEC2インスタンスから調べられた
+# proxy=http://<proxyのプライベートIP>:3128
+proxy=http://172.31.44.132:3128
+
+wget
+
+
+
+
+
+
+

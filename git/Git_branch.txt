@@ -1,0 +1,24 @@
+
+・ブランチを作成し切り替える(git checkout -b)
+	feature-Aブランチに切り替えコミットする
+	git checkout -b feature-A
+
+	git checkout -b feature-Aは下記コマンドと同じ挙動
+		git branch feature-A    # ブランチ作成
+		git checkout feature-A  # ブランチ移動
+
+・ブランチの切り替え
+	git checkout -b [branch-name] # 指定したブランチに切り替え
+	git checkout -                # 一つ前のブランチに切り替え
+
+・ブランチをマージ
+	feature-A を実装完了として、統合ブランチであるmasterブランチにマージ
+	git checkout master         # masterブランチに移動
+	git merge --no-ff feature-A # マージ
+
+・ブランチを視覚的に確認
+	git log --graph
+
+・歴史を戻る
+	git reset [ハッシュ値]
+

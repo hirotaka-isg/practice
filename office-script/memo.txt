@@ -1,0 +1,7 @@
+■参考サイト
+・スクリプト実行→powerautomate
+https://docs.microsoft.com/ja-jp/office/dev/scripts/develop/power-automate-integration
+
+・でじらぼ
+https://www.teijitaisya.com/officescripts-code-collection/#index_id4
+

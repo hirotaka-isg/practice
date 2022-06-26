@@ -1,0 +1,10 @@
+参考サイト
+https://db-study.com/archives/category/sql%E5%85%A5%E9%96%80
+
+SET 項目 TO 設定値
+
+psqlからデータベースへの接続
+psql -U <データベースユーザー名> <データベース名>
+
+
+

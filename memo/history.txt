@@ -1,0 +1,94 @@
+2021/11/20
+・Docker(Data Volume)
+・Docker(Ruby on Rials構築)
+・Ruby on Rials(Rspec)
+
+2021/11/14
+・Docker Compose(RoRの構築)
+・TypeScript
+
+2021/11/13
+・Docker Compose
+・TypeScript
+・Qiita記事作成（ブックマーク整理術）
+
+2021/11/06
+・git 管理対象ファイルから除外する方法
+　https://codeaid.jp/blog/gitignore/
+・Docker基礎コマンド
+・Docker Hubの使い方
+
+2021/11/05
+・Udemy ゼロからはじめるDockerによるアプリケーション構築
+
+2021/11/04
+・1passwordの使い方
+・ポートフォリオ　作成アプリ構想
+・実装したい機能洗い出し
+・テーブル定義
+
+2021/11/02
+・VSCの使い方、オススメの設定
+　https://book.mynavi.jp/manatee/detail/id=120355
+　https://chigusa-web.com/blog/vs-code%E3%81%AE%E3%82%AA%E3%82%B9%E3%82%B9%E3%83%A1%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%83%BB%E6%8B%A1%E5%BC%B5%E6%A9%9F%E8%83%BD%E3%83%BB%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88/
+
+2021/11/01
+・Docker
+　入門Docker→https://y-ohgi.com/introduction-docker/
+・CircleCI
+・git　日本語ファイル文字化け対策
+　https://dev.classmethod.jp/articles/git-avoid-illegal-charactor-tips/
+
+2021/10/31
+・Docker
+　入門Docker→https://y-ohgi.com/introduction-docker/
+・CircleCI
+
+2021/10/30
+・GitHubを利用した開発フローの疑似体験
+・CircleCI
+・AtomとGitHubを連携
+　https://www.sejuku.net/blog/73327
+・ステージング環境とは？
+　https://it-trend.jp/development_tools/article/32-0033
+・Docker
+
+2021/10/29
+・GitHubを利用した開発フローの疑似体験
+・CircleCI
+　https://qiita.com/gold-kou/items/4c7e62434af455e977c2
+
+2021/10/28
+・GitHubを利用した開発フローの疑似体験
+・テキストエディタのAtomとGitHubを紐付けてみる
+
+2021/10/25
+・リモートリポジトリにアップロードする際にパスを求められないようにする
+→下記URLでは解決ならず…
+　https://qiita.com/rorensu2236/items/df7d4c2cf621eeddd468
+→ホームディレクトリ上に「.netrc」ファイルを作成(これだけではまだパスは求められる)
+→.git/configファイルを編集？
+→パスワード入力不要にする方法はうまくいかず
+
+2021/10/24
+・AWS Fargate学習
+・Docker学習
+・企業調べ
+・要件定義について
+・リモートリポジトリの削除方法
+
+2021/10/23
+・GitHubにアップロード
+・GitHubにpush時エラーになる原因と対処法調査
+・ポートフォリオ情報収集
+・Web系転職用に学習してきた教材を洗い出し
+・不要なリポジトリの削除
+・GitHubへpush時のパスワード入力省略方法の調査
+
+2021/10/21
+・ポートフォリオ情報収集
+
+2021/10/20
+・GitHubの使い方学習
+・Docker学習
+・ポートフォリオ情報収集

@@ -1,0 +1,16 @@
+学習順序
+①公式チュートリアル https://circleci.com/docs/ja/2.0/tutorials/
+②Qiita https://qiita.com/gold-kou/items/4c7e62434af455e977c2
+
+公式サイト https://circleci.com/
+
+参考動画
+https://www.youtube.com/watch?v=J1l-icYGyd0
+https://www.youtube.com/watch?v=6uZltaISUvo
+
+
+CircleCIのログイン方法
+GitHubアカウントがあればログイン可能
+
+
+

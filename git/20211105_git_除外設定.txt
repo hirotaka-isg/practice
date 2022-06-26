@@ -1,0 +1,10 @@
+https://codeaid.jp/blog/gitignore/
+
+記述例
+[ファイル削除]
+git rm foo/hello.txt
+
+[キャッシュ削除]
+git rm --cached foo/hello.txt
+
+

@@ -1,0 +1,13 @@
+リポジトリの削除
+・GitHubで、リポジトリのメインページにアクセスしてください。
+・リポジトリ名の下で Settings（設定）をクリックしてください。
+・[Danger Zone] の [Delete this repository] をクリックします。
+・警告を読みます。
+・削除しようとしているリポジトリに間違いがないことを確認するために、削除対象のリポジトリ名を入力します。
+・[I understand the consequences, delete this repository] をクリックします。
+
+■参考サイト
+https://docs.github.com/ja/repositories/creating-and-managing-repositories/deleting-a-repository
+
+
+
