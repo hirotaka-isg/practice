@@ -1,0 +1,69 @@
+・ユーザモードから特権モードへ移行
+enable
+
+・特権モードからグローバルコンフィグレーションモードへの移行
+configure terminal
+
+・ホスト名の設定
+hostname R1
+
+・インターフェイスコンフィグレーションモードへの移行
+interface fastethernet 0
+
+・ルーターコンフィグレーションモードへの移行
+router rip
+
+・どのコンフィグレーションモードからでも１回で特権EXECモードに戻る
+end
+
+
+・イネーブルパスワード
+　ユーザEXECモードから特権EXECモードへ移行するときに要求するパスワード
+enable password [pass]
+
+
+・IPアドレスの設定
+	・対象インターフェイスのコンフィグレーションモードに移行
+	interface [インターフェイスタイプ] [ポート番号]
+
+	・IPアドレスの設定
+	ip address [IP] [サブネットマスク]
+
+	・インターフェイスの有効化
+	no shtdown
+
+	・記述例
+	ip address 172.168.33.10 255.255.0.0
+	※サブネットマスクはプレフィックス(/24など)の記述はダメ
+
+【設定の確認と保存】
+・稼働中の設定情報の確認
+show running-config
+
+・保存している設定の確認
+show startup-config
+
+・インターフェイスの状態の確認
+show interfaces
+
+・現在の設定の保存
+copy running-config startup-config
+
+【ルーティングテーブルの確認】
+・ルーティングテーブルの確認
+show ip route
+
+
+
+
+
+
+
+
+
+・Cisco Packet Tracer
+https://www.netacad.com/ja/courses/packet-tracer
+
+
+
+
