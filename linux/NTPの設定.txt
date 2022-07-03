@@ -1,0 +1,34 @@
+
+■ubuntu
+# 管理者権限でログイン
+　sudo su -
+
+# 現在の設定を確認
+timedatectl
+
+# 日本時間に設定変更
+sudo timedatectl set-timezone Asia/Tokyo
+
+# 変更後の設定を確認
+timedatectl
+
+■SUSE
+・管理者権限でログイン
+　sudo su -
+
+・現在の設定を確認
+ntpq -qn
+
+・設定ファイルの編集
+vi /etc/ntp.conf
+
+・追加する行
+
+・ntpのステータス確認
+mtctol sutatus ntp
+
+・ntpの再起動（編集した設定を反映させる）
+mtctol restert ntp
+
+・変更後の設定を確認
+ntpq -qn
