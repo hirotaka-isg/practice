@@ -11,5 +11,6 @@ yum remove postgresql
 mkdir postgres
 sudo su - postgres -c 'initdb -E UTF8 --locale=C'
 
+# 適当になにかテーブル構築
 
-ruby on railsの
+
